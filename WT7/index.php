@@ -58,19 +58,18 @@ if (isset($_GET['submit'])) {
     //$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
     $mail->SMTPAuth = true; 
     $mail->Host = "smtp.gmail.com";
-    $mail->Username = 'dasha18shparko@gmail.com';
-    $mail->Password = 'ab2564221';
+    $mail->Username = '';
+    $mail->Password = '';
     $mail->SMTPSecure = 'ssl'; //tls
 
     $mail->Port =  465; // or 587
     $mail->IsHTML(true);
-    $mail->SetFrom('dasha18shparko@gmail.com', 'Darya');
+    $mail->SetFrom('', 'Darya');
     for ($i = 0; $i < $rows; $i++) {
         for ($j = 0; $j < count($resultarray[$i]); $j++) {
             $mail->AddAddress($resultarray[$i][$j]);
         }
     }
-    //$mail->AddAddress('dasha18shparko@gmail.com');
     try {
         $mail->Body = $message;
         $mail->Subject = $subject;
